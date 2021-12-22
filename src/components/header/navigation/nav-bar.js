@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import { NavLink } from "react-router-dom";
 
 export default class NavBar extends Component {
+    constructor() {
+        super();
+
+        this.handleChangeToNight = this.handleChangeToNight.bind(this)
+        this.handleChangeToLight = this.handleChangeToLight.bind(this)
+
+    }
+    
+    handleChangeToNight() {
+        this.props.handleDayToNightChange()
+    }
+
+    handleChangeToLight() {
+        this.props.handleNightToDayChange()
+    }
     render() {
         return (
             <div>
@@ -33,7 +48,11 @@ export default class NavBar extends Component {
                     </div>
 
                     <div className="right-side">
-                        CARLOS LEANY
+                        {this.props.colorPalette === "LIGHT_MODE" ? (
+                            <button className='light' onClick={this.handleChangeToNight}>Night-Mode</button>
+                        ) : 
+                            <button className='night' onClick={this.handleChangeToLight}>Light-Mode</button>
+                        }
                     </div>
                 </div>
             </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import NavBar from "./navigation/nav-bar";
+import InfoBar from "./header/info-bar/info-bar";
+import NavBar from "./header/navigation/nav-bar";
 import Home from './pages/home';
 import TryYourself from './pages/try-yourself';
 import Example from "./pages/example";
@@ -11,12 +12,39 @@ import '../styles/main.scss';
 
 
 export default class App extends Component {
+  constructor(props) {
+    super(props) 
+
+    this.state = {
+      colorPalette: "LIGHT_MODE"
+    }
+
+    this.handleDayToNightChange = this.handleDayToNightChange.bind(this)
+    this.handleNightToDayChange = this.handleNightToDayChange.bind(this)
+  }
+
+  handleDayToNightChange() {
+    this.setState({
+      colorPalette: "NIGHT_MODE"
+    })
+  }
+
+  handleNightToDayChange() {
+    this.setState({
+      colorPalette: "LIGHT_MODE"
+    })
+  }
   render() {
     return (
       <div className="App">
         <Router>
           <div>
-            <NavBar />
+            <InfoBar />
+            <NavBar
+              colorPalette={this.state.colorPalette}
+              handleDayToNightChange={this.handleDayToNightChange}
+              handleNightToDayChange={this.handleNightToDayChange}
+            />
             <Routes>
               <Route path='/' element={<Home/>} />
               <Route path='/trying' element={<TryYourself/>} />

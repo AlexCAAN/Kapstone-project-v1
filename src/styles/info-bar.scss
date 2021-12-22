@@ -1,0 +1,26 @@
+.info-bar {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    background-color: $offwhite;
+
+    .info-bar-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        height: 80px;
+
+        &:nth-child(1) {
+            justify-content: left;
+        }
+
+        &:nth-child(2) {
+            border-left: black 5px solid;
+            border-right: black 5px solid;
+        }
+
+        &:nth-child(3) {
+            justify-content: right;
+        }
+    }
+}
