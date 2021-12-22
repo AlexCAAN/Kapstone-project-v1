@@ -9,11 +9,14 @@ import Example from "./pages/example";
 import Contact from "./pages/contact";
 import NoMatch from "./pages/no-match";
 import '../styles/main.scss';
+import Icons from "../helpers/icons";
 
 
 export default class App extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
+
+    Icons()
 
     this.state = {
       colorPalette: "LIGHT_MODE"

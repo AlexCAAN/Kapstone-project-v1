@@ -1,59 +1,63 @@
-.nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    height: 80px;
+.nav-wrapper-light {
+    @include nav-bar();
+    background-color: white;
 
-    .left-side{
-        display: flex;
-        padding: 30px;
-    }
-
-    .nav-link-wrapper {
-        height: 22px;
-        border-bottom: 1px solid transparent;
-        transition: 0.5s ease-in-out;
-
-        margin-right: 20px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-
-        a {
-            color: $grey;
-            text-decoration: none;
-            transition: 1s ease-in-out;
-            &:hover {
-                color: rgb(107, 28, 28);
+    .left-side {
+        .nav-link-wrapper {
+            a {
+                color: $grey;
+                &:hover {
+                    color: $dark-primary_light;
+                }
             }
-        }
 
-        &:hover {
-            border-bottom: 1px solid black;
-        }
+            &:hover {
+                border-bottom: 1px solid $offblack;
+            }
 
-        .active {
-            padding-bottom: 6px;
-            border-bottom: 1px solid black;
-            color: black;
+            .active {
+                border-bottom: 1px solid $offblack;
+                color: $offblack;
+            }
         }
     }
 
     .right-side {
-        padding: 0px;
         .light {
             background-color: $offblack;
             color: $offwhite;
         }
+    }
+}
+
+.nav-wrapper-dark {
+    @include nav-bar();
+    background-color: black;
+
+    .left-side {
+        .nav-link-wrapper {
+            a {
+                color: $grey;
+                &:hover {
+                    color: $dark-primary_dark;
+                }
+            }
+
+            &:hover {
+                border-bottom: 1px solid $offwhite;
+            }
+
+            .active {
+                border-bottom: 1px solid $offwhite;
+                color: $offwhite;
+            }
+        }
+    }
+
+    .right-side {
         .night {
             background-color: $offwhite;
             color: $offblack;
-        }
-        button {
-            cursor: pointer;
-            border: unset;
-            height: 80px;
-            width: 140px;
-            padding: unset;
-            font-size: 1.5em;
         }
     }
 }
