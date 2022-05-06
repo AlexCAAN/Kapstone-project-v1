@@ -6,6 +6,7 @@ import NavBar from "./header/navigation/nav-bar";
 import Home from './pages/home';
 import TryYourself from './pages/try-yourself';
 import Example from "./pages/example";
+import Hidden from "./pages/hidden";
 import Contact from "./pages/contact";
 import NoMatch from "./pages/no-match";
 import '../styles/main.scss';
@@ -50,6 +51,7 @@ export default class App extends Component {
             />
             <Routes>
               <Route path='/' element={<Home/>} />
+              <Route path='/urmom' element={<Hidden/>} />
               <Route path='/trying' element={<TryYourself/>} />
               <Route path='/example' element={<Example/>} />
               <Route path='/contact' element={<Contact/>} />
